@@ -175,17 +175,32 @@ Custom property | Description | Default
           /**
            * Specifies the size of the spinner to be used.
            */
-          size: {
+          skSize: {
             type: Number,
             observe: '_onSizeChanged'
           },
           /**
            * Specifies the size of the spinner to be used.
            */
-          color: {
+          skColor: {
             type: String,
             observe: '_onColorChanged'
           },
+        },
+
+        attached: function() {
+          var update = false;
+          if (this.skSize) {
+            this.customStyle['--spinkit-element-size'] = this.skSize+"px";
+            update = true;
+          }
+          if (this.skColor) {
+            this.customStyle['--spinkit-element-color'] = this.skColor;
+            update = true;
+          }
+          if (update) {
+            this.updateStyles();
+          }
         },
 
         _checkSpinnerName: function(givenName, spinnerName) {
@@ -194,6 +209,7 @@ Custom property | Description | Default
           }
           return givenName === spinnerName;
         },
+        
         _onSizeChanged: function(size) {
           this.customStyle['--spinkit-element-size'] = size+"px";
           this.updateStyles();

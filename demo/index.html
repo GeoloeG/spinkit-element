@@ -26,7 +26,7 @@
   <style is="custom-style">
 
     .centered {
-      max-width: 800px;
+      max-width: 1280px;
       padding: 0;
       overflow: auto;
     }
@@ -43,6 +43,7 @@
       @apply(--layout-horizontal);
       @apply(--layout-center-center);
       background-color: var(--light-primary-color);
+      padding: 24px;
     }
 
   </style>
@@ -68,7 +69,7 @@
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
           <spinkit-element
             name="[[spinner.name]]"
-            size="[[spinner.size]]">
+            sk-size="[[spinner.size]]">
           </spinkit-element>
         </template>
       </section>
@@ -78,7 +79,7 @@
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
           <spinkit-element
             name="[[spinner.name]]"
-            size="[[spinner.color]]">
+            sk-color="[[spinner.color]]">
           </spinkit-element>
         </template>
       </section>
@@ -100,8 +101,8 @@
       <div id="result">
         <spinkit-element
           name="[[spinner]]"
-          size="[[size]]"
-          color="[[color]]">
+          sk-size="[[size]]"
+          sk-color="[[color]]">
         </spinkit-element>        
       </div>
     </div>
