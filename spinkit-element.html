@@ -1,9 +1,22 @@
 <link rel="import" href="../polymer/polymer.html">
 
+<link rel="import" href="../paper-spinner/paper-spinner-behavior.html">
+
 <link rel="import" href="spinkit-element-styles.html">
 
 <!--
-`<spinkit-element>`is an configurable spinner element based on [SpinKit](http://tobiasahlin.com/spinkit/).
+`<spinkit-element>`is a configurable spinner element based on [SpinKit](http://tobiasahlin.com/spinkit/).
+
+    <spinkit-element name="circle" active></spinkit-element>
+
+### Accessibility
+
+Alt attribute should be set to provide adequate context for accessibility. If not provided,
+it defaults to 'loading'.
+Empty alt can be provided to mark the element as decorative if alternative content is provided
+in another form (e.g. a text block following the spinner).
+
+    <paper-spinner alt="Loading contacts list" active></paper-spinner>
 
 ### Styling
 
@@ -27,6 +40,8 @@ Custom property | Description | Default
         @apply(--spinkit-element);
       }
     </style>
+
+    <!-- TODO: finish active/aria integration from paper-spinner -->
 
     <!-- rotating plane -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'rotating-plane')]]" restamp>
@@ -161,8 +176,14 @@ Custom property | Description | Default
         'folding-cube'
       ];
 
+      // TODO:
+
       Polymer({
         is: 'spinkit-element',
+
+        behaviors: [
+          Polymer.PaperSpinnerBehavior
+        ],
 
         properties: {
           /**
@@ -175,14 +196,14 @@ Custom property | Description | Default
           /**
            * Specifies the size of the spinner to be used.
            */
-          skSize: {
+          size: {
             type: Number,
             observe: '_onSizeChanged'
           },
           /**
            * Specifies the size of the spinner to be used.
            */
-          skColor: {
+          color: {
             type: String,
             observe: '_onColorChanged'
           },
@@ -190,12 +211,12 @@ Custom property | Description | Default
 
         attached: function() {
           var update = false;
-          if (this.skSize) {
-            this.customStyle['--spinkit-element-size'] = this.skSize+"px";
+          if (this.size) {
+            this.customStyle['--spinkit-element-size'] = this.size+"px";
             update = true;
           }
-          if (this.skColor) {
-            this.customStyle['--spinkit-element-color'] = this.skColor;
+          if (this.color) {
+            this.customStyle['--spinkit-element-color'] = this.color;
             update = true;
           }
           if (update) {
@@ -209,7 +230,7 @@ Custom property | Description | Default
           }
           return givenName === spinnerName;
         },
-        
+
         _onSizeChanged: function(size) {
           this.customStyle['--spinkit-element-size'] = size+"px";
           this.updateStyles();

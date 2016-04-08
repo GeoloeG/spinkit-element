@@ -1,6 +1,6 @@
 {
   "name": "spinkit-element",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "authors": [
     "Pascal Gula aka MeTaNoV <pascal.gula@gmail.com>"
   ],
@@ -43,7 +43,8 @@
     "/demo/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.2.0"
+    "polymer": "Polymer/polymer#^1.2.0",
+    "paper-spinner": "PolymerElements/paper-spinner#^1.0.0"
   },
   "devDependencies": {
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",

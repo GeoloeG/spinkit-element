@@ -26,7 +26,7 @@
   <style is="custom-style">
 
     .centered {
-      max-width: 1280px;
+      max-width: 2048px;
       padding: 0;
       overflow: auto;
     }
@@ -36,7 +36,7 @@
     }
 
     spinkit-element {
-      margin: 12px;
+      margin: 30px;
     }
 
     section, #result {
@@ -55,31 +55,31 @@
     <div class="vertical-section vertical-section-container centered">
       <h1>&lt;spinkit-element&gt;</h1>
 
-      <h3>All default spinkit</h3>
+      <h3>Default spinkits</h3>
       <section>
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
-          <spinkit-element 
+          <spinkit-element
             name="[[spinner.name]]">
           </spinkit-element>
         </template>
       </section>
 
-      <h3>All sized spinkit</h3>
+      <h3>Sized spinkit</h3>
       <section>
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
           <spinkit-element
             name="[[spinner.name]]"
-            sk-size="[[spinner.size]]">
+            size="[[spinner.size]]">
           </spinkit-element>
         </template>
       </section>
 
-      <h3>All colored spinkit</h3>
+      <h3>Colored spinkit</h3>
       <section>
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
           <spinkit-element
             name="[[spinner.name]]"
-            sk-color="[[spinner.color]]">
+            color="[[spinner.color]]">
           </spinkit-element>
         </template>
       </section>
@@ -87,9 +87,9 @@
       <h3>Configure your spinner</h3>
       <section>
         <paper-dropdown-menu label="Choose your spinner...">
-          <paper-menu 
+          <paper-menu
             class="dropdown-content"
-            attr-for-selected="spinner" 
+            attr-for-selected="spinner"
             selected="{{spinner}}">
             <template is="dom-repeat" items="[[spinners]]" as="spinner">
               <paper-item spinner="[[spinner.name]]">[[spinner.name]]</paper-item>
@@ -101,9 +101,9 @@
       <div id="result">
         <spinkit-element
           name="[[spinner]]"
-          sk-size="[[size]]"
-          sk-color="[[color]]">
-        </spinkit-element>        
+          size="[[size]]"
+          color="[[color]]">
+        </spinkit-element>
       </div>
     </div>
 
