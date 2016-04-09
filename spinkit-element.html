@@ -24,7 +24,6 @@ The following mixin is available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--spinkit-element` | Mixin applied to the element | `{}`
 `--spinkit-element-size` | Width/Height of the spinner | `{}`
 `--spinkit-element-color` | Color of the spinner | `{}`
 
@@ -36,8 +35,9 @@ Custom property | Description | Default
     <style include='spinkit-element-styles'>
       :host {
         display: inline-block;
-
-        @apply(--spinkit-element);
+        position: relative;
+        width: var(--spinkit-element-size, 40px);
+        height: var(--spinkit-element-size, 40px);
       }
     </style>
 
@@ -176,8 +176,6 @@ Custom property | Description | Default
         'folding-cube'
       ];
 
-      // TODO:
-
       Polymer({
         is: 'spinkit-element',
 
@@ -198,30 +196,15 @@ Custom property | Description | Default
            */
           size: {
             type: Number,
-            observe: '_onSizeChanged'
+            observer: '_onSizeChanged'
           },
           /**
            * Specifies the size of the spinner to be used.
            */
           color: {
             type: String,
-            observe: '_onColorChanged'
+            observer: '_onColorChanged'
           },
-        },
-
-        attached: function() {
-          var update = false;
-          if (this.size) {
-            this.customStyle['--spinkit-element-size'] = this.size+"px";
-            update = true;
-          }
-          if (this.color) {
-            this.customStyle['--spinkit-element-color'] = this.color;
-            update = true;
-          }
-          if (update) {
-            this.updateStyles();
-          }
         },
 
         _checkSpinnerName: function(givenName, spinnerName) {

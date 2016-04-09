@@ -1,3 +1,6 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+
 <dom-module id="spinkit-element-styles">
   <template>
     <style>
@@ -8,8 +11,8 @@
  *
  */
 .sk-rotating-plane {
-  width: var(--spinkit-element-size, 40px);
-  height: var(--spinkit-element-size, 40px);
+  width: 100%;
+  height: 100%;
   background-color: var(--spinkit-element-color, --primary-background-color);
 
   -webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
@@ -47,8 +50,8 @@
  *
  */
 .sk-double-bounce {
-  width: var(--spinkit-element-size, 40px);
-  height: var(--spinkit-element-size, 40px);
+  width: 100%;
+  height: 100%;
   position: relative;}
   .sk-double-bounce .sk-child {
     width: 100%;
@@ -94,16 +97,14 @@
  *
  */
 .sk-wave {
-  /* TODO size is not squared... */
-  width: var(--spinkit-element-size, 50px);
-  height: var(--spinkit-element-size, 40px);
-  text-align: center;
-  font-size: 10px; }
+  width: 100%;
+  height: 100%;
+  @apply(--layout-horizontal);
+  @apply(--layout-around-justified); }
   .sk-wave .sk-rect {
     background-color: var(--spinkit-element-color, --primary-background-color);
     height: 100%;
-    /* TODO compute proper ratio... */
-    width: 6px;
+    width: 13%;
     display: inline-block;
     -webkit-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
             animation: sk-waveStretchDelay 1.2s infinite ease-in-out; }
@@ -149,8 +150,8 @@
  *
  */
 .sk-wandering-cubes {
-  width: var(--spinkit-element-size, 40px);
-  height: var(--spinkit-element-size, 40px);
+  width: 100%;
+  height: 100%;
   position: relative; }
   .sk-wandering-cubes .sk-cube {
     background-color: var(--spinkit-element-color, --primary-background-color);
@@ -170,18 +171,18 @@
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg); }
   25% {
-    -webkit-transform: translateX(30px) rotate(-90deg) scale(0.5);
-            transform: translateX(30px) rotate(-90deg) scale(0.5); }
+    -webkit-transform: translateX(300%) rotate(-90deg) scale(0.5);
+            transform: translateX(300%) rotate(-90deg) scale(0.5); }
   50% {
     /* Hack to make FF rotate in the right direction */
-    -webkit-transform: translateX(30px) translateY(30px) rotate(-179deg);
-            transform: translateX(30px) translateY(30px) rotate(-179deg); }
+    -webkit-transform: translateX(300%) translateY(300%) rotate(-179deg);
+            transform: translateX(300%) translateY(300%) rotate(-179deg); }
   50.1% {
-    -webkit-transform: translateX(30px) translateY(30px) rotate(-180deg);
-            transform: translateX(30px) translateY(30px) rotate(-180deg); }
+    -webkit-transform: translateX(300%) translateY(300%) rotate(-180deg);
+            transform: translateX(300%) translateY(300%) rotate(-180deg); }
   75% {
-    -webkit-transform: translateX(0) translateY(30px) rotate(-270deg) scale(0.5);
-            transform: translateX(0) translateY(30px) rotate(-270deg) scale(0.5); }
+    -webkit-transform: translateX(0) translateY(300%) rotate(-270deg) scale(0.5);
+            transform: translateX(0) translateY(300%) rotate(-270deg) scale(0.5); }
   100% {
     -webkit-transform: rotate(-360deg);
             transform: rotate(-360deg); } }
@@ -191,18 +192,18 @@
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg); }
   25% {
-    -webkit-transform: translateX(30px) rotate(-90deg) scale(0.5);
-            transform: translateX(30px) rotate(-90deg) scale(0.5); }
+    -webkit-transform: translateX(300%) rotate(-90deg) scale(0.5);
+            transform: translateX(300%) rotate(-90deg) scale(0.5); }
   50% {
     /* Hack to make FF rotate in the right direction */
-    -webkit-transform: translateX(30px) translateY(30px) rotate(-179deg);
-            transform: translateX(30px) translateY(30px) rotate(-179deg); }
+    -webkit-transform: translateX(300%) translateY(300%) rotate(-179deg);
+            transform: translateX(300%) translateY(300%) rotate(-179deg); }
   50.1% {
-    -webkit-transform: translateX(30px) translateY(30px) rotate(-180deg);
-            transform: translateX(30px) translateY(30px) rotate(-180deg); }
+    -webkit-transform: translateX(300%) translateY(300%) rotate(-180deg);
+            transform: translateX(300%) translateY(300%) rotate(-180deg); }
   75% {
-    -webkit-transform: translateX(0) translateY(30px) rotate(-270deg) scale(0.5);
-            transform: translateX(0) translateY(30px) rotate(-270deg) scale(0.5); }
+    -webkit-transform: translateX(0) translateY(300%) rotate(-270deg) scale(0.5);
+            transform: translateX(0) translateY(300%) rotate(-270deg) scale(0.5); }
   100% {
     -webkit-transform: rotate(-360deg);
             transform: rotate(-360deg); } }
@@ -214,8 +215,8 @@
  *
  */
 .sk-spinner-pulse {
-  width: var(--spinkit-element-size, 40px);
-  height: var(--spinkit-element-size, 40px);
+  width: 100%;
+  height: 100%;
   background-color: var(--spinkit-element-color, --primary-background-color);
   border-radius: 100%;
   -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
@@ -249,8 +250,9 @@
  *
  */
 .sk-chasing-dots {
-  width: var(--spinkit-element-size, 40px);
-  height: var(--spinkit-element-size, 40px);
+  width: 100%;
+  height: 100%;
+
   position: relative;
   text-align: center;
   -webkit-animation: sk-chasingDotsRotate 2s infinite linear;
@@ -308,13 +310,17 @@
  *
  */
 .sk-three-bounce {
-  /* TODO check because tricky... */
-  width: var(--spinkit-element-size, 80px);
-  height: var(--spinkit-element-size, 80px);
-  text-align: center; }
+  position: relative;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  @apply(--layout-horizontal);
+  @apply(--layout-center-center); }
   .sk-three-bounce .sk-child {
-    width: 25%;
-    height: 25%;
+	margin: 1%;
+    width: 20%;
+    height: 20%;
     background-color: var(--spinkit-element-color, --primary-background-color);
     border-radius: 100%;
     display: inline-block;
@@ -363,8 +369,9 @@
  *
  */
 .sk-circle {
-  width: var(--spinkit-element-size, 40px);
-  height: var(--spinkit-element-size, 40px);
+  width: 100%;
+  height: 100%;
+
   position: relative; }
   .sk-circle .sk-child {
     width: 100%;
@@ -493,8 +500,9 @@
  *
  */
 .sk-cube-grid {
-  width: var(--spinkit-element-size, 40px);
-  height: var(--spinkit-element-size, 40px);
+  width: 100%;
+  height: 100%;
+
   /*
    * Spinner positions
    * 1 2 3
@@ -572,8 +580,9 @@
  *
  */
 .sk-fading-circle {
-  width: var(--spinkit-element-size, 40px);
-  height: var(--spinkit-element-size, 40px);
+  width: 100%;
+  height: 100%;
+
   position: relative; }
   .sk-fading-circle .sk-circle {
     width: 100%;
@@ -693,8 +702,9 @@
  *
  */
 .sk-folding-cube {
-  width: var(--spinkit-element-size, 40px);
-  height: var(--spinkit-element-size, 40px);
+  width: 100%;
+  height: 100%;
+
   position: relative;
   -webkit-transform: rotateZ(45deg);
           transform: rotateZ(45deg); }

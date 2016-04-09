@@ -17,6 +17,7 @@
   <link rel="import" href="../../paper-styles/color.html">
 
   <link rel="import" href="../../paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="../../paper-color-picker/paper-color-input.html">
   <link rel="import" href="../../paper-input/paper-input.html">
   <link rel="import" href="../../paper-item/paper-item.html">
   <link rel="import" href="../../paper-menu/paper-menu.html">
@@ -35,14 +36,20 @@
       margin-left: 30px;
     }
 
-    spinkit-element {
+    spinkit-element, paper-dropdown-menu, paper-input {
       margin: 30px;
     }
 
     section, #result {
       @apply(--layout-horizontal);
       @apply(--layout-center-center);
+    }
+
+    .backgrounded {
       background-color: var(--light-primary-color);
+    }
+
+    .spaced {
       padding: 24px;
     }
 
@@ -56,16 +63,17 @@
       <h1>&lt;spinkit-element&gt;</h1>
 
       <h3>Default spinkits</h3>
-      <section>
+      <section class="backgrounded">
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
           <spinkit-element
-            name="[[spinner.name]]">
+            name="[[spinner.name]]"
+            size="60">
           </spinkit-element>
         </template>
       </section>
 
       <h3>Sized spinkit</h3>
-      <section>
+      <section class="backgrounded spaced">
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
           <spinkit-element
             name="[[spinner.name]]"
@@ -79,7 +87,8 @@
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
           <spinkit-element
             name="[[spinner.name]]"
-            color="[[spinner.color]]">
+            color="[[spinner.color]]"
+            size="60">
           </spinkit-element>
         </template>
       </section>
@@ -96,7 +105,16 @@
             </template>
           </paper-menu>
         </paper-dropdown-menu>
-        <paper-input label="size" type="number" value="{{size}}"></paper-input>
+        <paper-input
+          label="Choose your size"
+          type="number"
+          value="{{size}}">
+        </paper-input>
+        <paper-color-input
+          label="Choose your color"
+          with-description
+          value-as-hex="{{color}}">
+        </paper-input>
       </section>
       <div id="result">
         <spinkit-element
@@ -110,22 +128,25 @@
   </template>
   <script>
     var spinners = [
-      { name: 'rotating-plane',  size: 20, color: '#000' },
-      { name: 'double-bounce', size: 30, color: '#111' },
-      { name: 'wave', size: 40, color: '#222' },
-      { name: 'wandering-cubes', size: 50, color: '#333' },
-      { name: 'spinner-pulse', size: 60, color: '#444' },
-      { name: 'chasing-dots', size: 70, color: '#555' },
-      { name: 'three-bounce', size: 80, color: '#666' },
-      { name: 'circle', size: 90, color: '#777' },
-      { name: 'cube-grid', size: 100, color: '#888' },
-      { name: 'fading-circle', size: 110, color: '#999' },
-      { name: 'folding-cube', size: 120, color: '#AAA' }
+      { name: 'rotating-plane',  size: 20, color: '#F44336' },
+      { name: 'double-bounce', size: 30, color: '#E91E63' },
+      { name: 'wave', size: 40, color: '#2196F3' },
+      { name: 'wandering-cubes', size: 50, color: '#8BC34A' },
+      { name: 'spinner-pulse', size: 60, color: '#FF5722' },
+      { name: 'chasing-dots', size: 70, color: '#795548' },
+      { name: 'three-bounce', size: 80, color: '#FFEB3B' },
+      { name: 'circle', size: 90, color: '#00BCD4' },
+      { name: 'cube-grid', size: 100, color: '#009688' },
+      { name: 'fading-circle', size: 110, color: '#673AB7' },
+      { name: 'folding-cube', size: 120, color: '#FFC107' }
     ];
 
     addEventListener('WebComponentsReady', function() {
       var t = document.querySelector("#t");
       t.spinners = spinners;
+      t.spinner = 'wave'
+      t.size = 60;
+      t.color = '#40FF6C';
     });
   </script>
 
