@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/MeTaNoV/spinkit-element.svg?branch=master)](https://travis-ci.org/MeTaNoV/spinkit-element)
 [![Dependency Status](https://gemnasium.com/MeTaNoV/spinkit-element.svg)](https://gemnasium.com/MeTaNoV/spinkit-element)
 
-`<spinkit-element>` is an configurable spinner element based on [SpinKit](http://tobiasahlin.com/spinkit/).
+`<spinkit-element>` is a configurable spinner element based on [SpinKit](http://tobiasahlin.com/spinkit/).
 
 ## Demo
 
