@@ -37,7 +37,7 @@
       margin-left: 30px;
     }
 
-    spinkit-element, paper-dropdown-menu, paper-input {
+    spinkit-element, paper-dropdown-menu, paper-input, .activated {
       margin: 30px;
     }
 
@@ -52,6 +52,11 @@
 
     .spaced {
       padding: 24px;
+    }
+
+    .actived {
+      @apply(--layout-vertical);
+      @apply(--layout-center-center);
     }
 
   </style>
@@ -131,7 +136,7 @@
       <h3>Activating spinners</h3>
       <section>
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
-          <div>
+          <div class="actived">
             <paper-checkbox checked="{{spinner.active}}">Spinner {{index}}</paper-checkbox>
             <spinkit-element
               active="[[spinner.active]]"
