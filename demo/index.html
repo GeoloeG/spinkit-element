@@ -21,6 +21,7 @@
   <link rel="import" href="../../paper-input/paper-input.html">
   <link rel="import" href="../../paper-item/paper-item.html">
   <link rel="import" href="../../paper-menu/paper-menu.html">
+  <link rel="import" href="../../paper-checkbox/paper-checkbox.html">
 
   <link rel="import" href="../spinkit-element.html">
 
@@ -60,12 +61,12 @@
   <template id="t" is="dom-bind">
 
     <div class="vertical-section vertical-section-container centered">
-      <h1>&lt;spinkit-element&gt;</h1>
 
       <h3>Default spinkits</h3>
       <section class="backgrounded">
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
           <spinkit-element
+            active
             name="[[spinner.name]]"
             size="60">
           </spinkit-element>
@@ -76,6 +77,7 @@
       <section class="backgrounded spaced">
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
           <spinkit-element
+            active
             name="[[spinner.name]]"
             size="[[spinner.size]]">
           </spinkit-element>
@@ -86,6 +88,7 @@
       <section>
         <template is="dom-repeat" items="[[spinners]]" as="spinner">
           <spinkit-element
+            active
             name="[[spinner.name]]"
             color="[[spinner.color]]"
             size="60">
@@ -118,11 +121,28 @@
       </section>
       <div id="result">
         <spinkit-element
+          active
           name="[[spinner]]"
           size="[[size]]"
           color="[[color]]">
         </spinkit-element>
       </div>
+
+      <h3>Activating spinners</h3>
+      <section>
+        <template is="dom-repeat" items="[[spinners]]" as="spinner">
+          <div>
+            <paper-checkbox checked="{{spinner.active}}">Spinner {{index}}</paper-checkbox>
+            <spinkit-element
+              active="[[spinner.active]]"
+              name="[[spinner.name]]"
+              color="[[spinner.color]]"
+              size="60">
+            </spinkit-element>
+          </div>
+        </template>
+      </section>
+
     </div>
 
   </template>

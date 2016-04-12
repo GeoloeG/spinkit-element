@@ -45,7 +45,7 @@ Custom property | Description | Default
 
     <!-- rotating plane -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'rotating-plane')]]" restamp>
-      <div class="sk-rotating-plane"></div>
+      <div id="sk-rotating-plane" class-name="[[__computeContainerClasses(active, __coolingDown)]]"></div>
     </template>
 
     <!-- double bounce -->
