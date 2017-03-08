@@ -1,12 +1,10 @@
-[![Bower version](https://badge.fury.io/bo/spinkit-element.svg)](https://badge.fury.io/bo/spinkit-element)
-[![Build Status](https://travis-ci.org/MeTaNoV/spinkit-element.svg?branch=master)](https://travis-ci.org/MeTaNoV/spinkit-element)
-[![Dependency Status](https://gemnasium.com/MeTaNoV/spinkit-element.svg)](https://gemnasium.com/MeTaNoV/spinkit-element)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/GeoloeG/numbro-element)
 
-`<spinkit-element>` is an configurable spinner element based on [SpinKit](http://tobiasahlin.com/spinkit/).
+# `<spinkit-element>`
 
-## Demo
+## Descripton
 
-[https://metanov.github.io/spinkit-element/](https://metanov.github.io/spinkit-element/components/spinkit-element/demo/)
+`<spinkit-element>` is a configurable spinner element based on [SpinKit](http://tobiasahlin.com/spinkit/).
 
 ## Install
 
@@ -26,11 +24,29 @@ Import Custom Element:
 
 And then use it:
 
+<!---
+```
+<custom-element-demo>
+  <template>
+    <link rel="import" href="spinkit-element.html">
+	  <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
 ```html
 <spinkit-element name="circle" size="100" active></spinkit-element>
 ```
 
 See the [Documentation](https://metanov.github.io/spinkit-element/) for more options.
+
+## More Demos
+
+[https://metanov.github.io/spinkit-element/](https://metanov.github.io/spinkit-element/components/spinkit-element/demo/)
+
+## Discussing
+
+If you have any questions, you can find me on the [Polymer Slack Channel](https://polymer.slack.com/), or just raise an Issue.
 
 ## Contributing
 
@@ -39,10 +55,3 @@ See the [Documentation](https://metanov.github.io/spinkit-element/) for more opt
 3. Commit your changes: `git commit -m 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
-
-## License
-
-[MIT License](http://opensource.org/licenses/MIT) © Pascal Gula
-
-[![Throughput Graph](https://graphs.waffle.io/MeTaNoV/spinkit-element/throughput.svg)](https://waffle.io/MeTaNoV/spinkit-element/metrics)
-
