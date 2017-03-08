@@ -24,8 +24,8 @@ The following mixin is available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--spinkit-element-size` | Width/Height of the spinner | `{}`
-`--spinkit-element-color` | Color of the spinner | `{}`
+`--spinkit-element-size` | Width/Height of the spinner | `40px`
+`--spinkit-element-color` | Color of the spinner | `--primary-background-color`
 
 @demo demo/index.html
 @hero hero.svg
@@ -41,16 +41,14 @@ Custom property | Description | Default
       }
     </style>
 
-    <!-- TODO: finish active/aria integration from paper-spinner -->
-
     <!-- rotating plane -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'rotating-plane')]]" restamp>
-      <div id="sk-rotating-plane" class-name="[[__computeContainerClasses(active, __coolingDown)]]"></div>
+      <div class-name="sk-rotating-plane [[__computeContainerClasses(active, __coolingDown)]]"></div>
     </template>
 
     <!-- double bounce -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'double-bounce')]]" restamp>
-      <div class="sk-double-bounce">
+      <div class-name="sk-double-bounce [[__computeContainerClasses(active, __coolingDown)]]">
         <div class="sk-child sk-double-bounce1"></div>
         <div class="sk-child sk-double-bounce2"></div>
       </div>
@@ -58,31 +56,31 @@ Custom property | Description | Default
 
     <!-- wave -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'wave')]]" restamp>
-      <div class="sk-wave">
-        <div class="sk-rect sk-rect1"></div>
-        <div class="sk-rect sk-rect2"></div>
-        <div class="sk-rect sk-rect3"></div>
-        <div class="sk-rect sk-rect4"></div>
-        <div class="sk-rect sk-rect5"></div>
+      <div class-name="sk-wave [[__computeContainerClasses(active, __coolingDown)]]">
+        <div class="sk-child sk-rect1"></div>
+        <div class="sk-child sk-rect2"></div>
+        <div class="sk-child sk-rect3"></div>
+        <div class="sk-child sk-rect4"></div>
+        <div class="sk-child sk-rect5"></div>
       </div>
     </template>
 
     <!-- wandering cubes -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'wandering-cubes')]]" restamp>
-      <div class="sk-wandering-cubes">
-        <div class="sk-cube sk-cube1"></div>
-        <div class="sk-cube sk-cube2"></div>
+      <div class-name="sk-wandering-cubes [[__computeContainerClasses(active, __coolingDown)]]">
+        <div class="sk-child sk-cube1"></div>
+        <div class="sk-child sk-cube2"></div>
       </div>
     </template>
 
     <!-- spinner pulse -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'spinner-pulse')]]" restamp>
-      <div class="sk-spinner-pulse"></div>
+      <div class-name="sk-spinner-pulse [[__computeContainerClasses(active, __coolingDown)]]"></div>
     </template>
 
     <!-- chasing dots -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'chasing-dots')]]" restamp>
-      <div class="sk-chasing-dots">
+      <div class-name="sk-chasing-dots [[__computeContainerClasses(active, __coolingDown)]]">
         <div class="sk-child sk-dot1"></div>
         <div class="sk-child sk-dot2"></div>
       </div>
@@ -90,7 +88,7 @@ Custom property | Description | Default
 
     <!-- three bounce -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'three-bounce')]]" restamp>
-      <div class="sk-three-bounce">
+      <div class-name="sk-three-bounce [[__computeContainerClasses(active, __coolingDown)]]">
         <div class="sk-child sk-bounce1"></div>
         <div class="sk-child sk-bounce2"></div>
         <div class="sk-child sk-bounce3"></div>
@@ -99,62 +97,62 @@ Custom property | Description | Default
 
     <!-- circle -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'circle')]]" restamp>
-      <div class="sk-circle">
-        <div class="sk-circle1 sk-child"></div>
-        <div class="sk-circle2 sk-child"></div>
-        <div class="sk-circle3 sk-child"></div>
-        <div class="sk-circle4 sk-child"></div>
-        <div class="sk-circle5 sk-child"></div>
-        <div class="sk-circle6 sk-child"></div>
-        <div class="sk-circle7 sk-child"></div>
-        <div class="sk-circle8 sk-child"></div>
-        <div class="sk-circle9 sk-child"></div>
-        <div class="sk-circle10 sk-child"></div>
-        <div class="sk-circle11 sk-child"></div>
-        <div class="sk-circle12 sk-child"></div>
+      <div class-name="sk-circle [[__computeContainerClasses(active, __coolingDown)]]">
+        <div class="sk-child sk-circle1"></div>
+        <div class="sk-child sk-circle2"></div>
+        <div class="sk-child sk-circle3"></div>
+        <div class="sk-child sk-circle4"></div>
+        <div class="sk-child sk-circle5"></div>
+        <div class="sk-child sk-circle6"></div>
+        <div class="sk-child sk-circle7"></div>
+        <div class="sk-child sk-circle8"></div>
+        <div class="sk-child sk-circle9"></div>
+        <div class="sk-child sk-circle10"></div>
+        <div class="sk-child sk-circle11"></div>
+        <div class="sk-child sk-circle12"></div>
       </div>
     </template>
 
     <!-- cube grid -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'cube-grid')]]" restamp>
-      <div class="sk-cube-grid">
-        <div class="sk-cube sk-cube1"></div>
-        <div class="sk-cube sk-cube2"></div>
-        <div class="sk-cube sk-cube3"></div>
-        <div class="sk-cube sk-cube4"></div>
-        <div class="sk-cube sk-cube5"></div>
-        <div class="sk-cube sk-cube6"></div>
-        <div class="sk-cube sk-cube7"></div>
-        <div class="sk-cube sk-cube8"></div>
-        <div class="sk-cube sk-cube9"></div>
+      <div class-name="sk-cube-grid [[__computeContainerClasses(active, __coolingDown)]]">
+        <div class="sk-child sk-cube1"></div>
+        <div class="sk-child sk-cube2"></div>
+        <div class="sk-child sk-cube3"></div>
+        <div class="sk-child sk-cube4"></div>
+        <div class="sk-child sk-cube5"></div>
+        <div class="sk-child sk-cube6"></div>
+        <div class="sk-child sk-cube7"></div>
+        <div class="sk-child sk-cube8"></div>
+        <div class="sk-child sk-cube9"></div>
       </div>
     </template>
 
     <!-- fading circle -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'fading-circle')]]" restamp>
-      <div class="sk-fading-circle">
-        <div class="sk-circle1 sk-circle"></div>
-        <div class="sk-circle2 sk-circle"></div>
-        <div class="sk-circle3 sk-circle"></div>
-        <div class="sk-circle4 sk-circle"></div>
-        <div class="sk-circle5 sk-circle"></div>
-        <div class="sk-circle6 sk-circle"></div>
-        <div class="sk-circle7 sk-circle"></div>
-        <div class="sk-circle8 sk-circle"></div>
-        <div class="sk-circle9 sk-circle"></div>
-        <div class="sk-circle10 sk-circle"></div>
-        <div class="sk-circle11 sk-circle"></div>
-        <div class="sk-circle12 sk-circle"></div>
+      <div class-name="sk-fading-circle [[__computeContainerClasses(active, __coolingDown)]]">
+        <div class="sk-child sk-circle1"></div>
+        <div class="sk-child sk-circle2"></div>
+        <div class="sk-child sk-circle3"></div>
+        <div class="sk-child sk-circle4"></div>
+        <div class="sk-child sk-circle5"></div>
+        <div class="sk-child sk-circle6"></div>
+        <div class="sk-child sk-circle7"></div>
+        <div class="sk-child sk-circle8"></div>
+        <div class="sk-child sk-circle9"></div>
+        <div class="sk-child sk-circle10"></div>
+        <div class="sk-child sk-circle11"></div>
+        <div class="sk-child sk-circle12"></div>
       </div>
     </template>
 
     <!-- folding cube -->
     <template is="dom-if" if="[[_checkSpinnerName(name, 'folding-cube')]]" restamp>
-      <div class="sk-folding-cube">
-        <div class="sk-cube1 sk-cube"></div>
-        <div class="sk-cube2 sk-cube"></div>
-        <div class="sk-cube4 sk-cube"></div>
-        <div class="sk-cube3 sk-cube"></div>
+      <div class-name="sk-folding-cube [[__computeContainerClasses(active, __coolingDown)]]">
+        <div class="sk-child sk-cube1"></div>
+        <div class="sk-child sk-cube2"></div>
+        <div class="sk-child sk-cube4"></div>
+        <div class="sk-child sk-cube3"></div>
       </div>
     </template>
 
@@ -222,6 +220,14 @@ Custom property | Description | Default
           this.customStyle['--spinkit-element-color'] = color;
           this.updateStyles();
         },
+
+        __reset: function() {
+          // we overload __reset for the warm-up not to reset values...
+          if (this.__coolingDown) {
+            this.active = false;
+            this.__coolingDown = false;
+          }
+        }
       });
     }());
   </script>
