@@ -36,11 +36,11 @@ And then use it:
 <spinkit-element name="circle" size="100" active></spinkit-element>
 ```
 
-See the [Documentation](https://metanov.github.io/spinkit-element/) for more options.
+See the [Documentation](https://geoloeg.github.io/spinkit-element/) for more options.
 
 ## More Demos
 
-[https://metanov.github.io/spinkit-element/](https://metanov.github.io/spinkit-element/components/spinkit-element/demo/)
+[https://geoloeg.github.io/spinkit-element/](https://geoloeg.github.io/spinkit-element/components/spinkit-element/demo/)
 
 ## Discussing
 
