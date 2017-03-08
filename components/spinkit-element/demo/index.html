@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+  <title>spinkit-element Demo</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../../iron-flex-layout/iron-flex-layout.html">
+
+  <link rel="import" href="../../paper-styles/default-theme.html">
+  <link rel="import" href="../../paper-styles/demo-pages.html">
+  <link rel="import" href="../../paper-styles/typography.html">
+  <link rel="import" href="../../paper-styles/color.html">
+
+  <link rel="import" href="../../paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="../../paper-color-picker/paper-color-input.html">
+  <link rel="import" href="../../paper-input/paper-input.html">
+  <link rel="import" href="../../paper-item/paper-item.html">
+  <link rel="import" href="../../paper-menu/paper-menu.html">
+  <link rel="import" href="../../paper-checkbox/paper-checkbox.html">
+
+  <link rel="import" href="../spinkit-element.html">
+
+  <style is="custom-style">
+
+    .centered {
+      max-width: 2048px;
+      padding: 0;
+      overflow: auto;
+    }
+
+    h1, h3 {
+      margin-left: 30px;
+    }
+
+    spinkit-element, paper-dropdown-menu, paper-input, .activated {
+      margin: 30px;
+    }
+
+    section, #result {
+      @apply(--layout-horizontal);
+      @apply(--layout-center-center);
+    }
+
+    .backgrounded {
+      background-color: var(--light-primary-color);
+    }
+
+    .spaced {
+      padding: 24px;
+    }
+
+    .actived {
+      @apply(--layout-vertical);
+      @apply(--layout-center-center);
+    }
+
+  </style>
+</head>
+
+<body unresolved>
+  <template id="t" is="dom-bind">
+
+    <div class="vertical-section vertical-section-container centered">
+
+      <h3>Default spinkits</h3>
+      <section class="backgrounded">
+        <template is="dom-repeat" items="[[spinners]]" as="spinner">
+          <spinkit-element
+            active
+            name="[[spinner.name]]"
+            size="60">
+          </spinkit-element>
+        </template>
+      </section>
+
+      <h3>Sized spinkit</h3>
+      <section class="backgrounded spaced">
+        <template is="dom-repeat" items="[[spinners]]" as="spinner">
+          <spinkit-element
+            active
+            name="[[spinner.name]]"
+            size="[[spinner.size]]">
+          </spinkit-element>
+        </template>
+      </section>
+
+      <h3>Colored spinkit</h3>
+      <section>
+        <template is="dom-repeat" items="[[spinners]]" as="spinner">
+          <spinkit-element
+            active
+            name="[[spinner.name]]"
+            color="[[spinner.color]]"
+            size="60">
+          </spinkit-element>
+        </template>
+      </section>
+
+      <h3>Configure your spinner</h3>
+      <section>
+        <paper-dropdown-menu label="Choose your spinner...">
+          <paper-menu
+            class="dropdown-content"
+            attr-for-selected="spinner"
+            selected="{{spinner}}">
+            <template is="dom-repeat" items="[[spinners]]" as="spinner">
+              <paper-item spinner="[[spinner.name]]">[[spinner.name]]</paper-item>
+            </template>
+          </paper-menu>
+        </paper-dropdown-menu>
+        <paper-input
+          label="Choose your size"
+          type="number"
+          value="{{size}}">
+        </paper-input>
+        <paper-color-input
+          label="Choose your color"
+          with-description
+          value-as-hex="{{color}}">
+        </paper-input>
+      </section>
+      <div id="result">
+        <spinkit-element
+          active
+          name="[[spinner]]"
+          size="[[size]]"
+          color="[[color]]">
+        </spinkit-element>
+      </div>
+
+      <h3>Activating spinners</h3>
+      <section>
+        <template is="dom-repeat" items="[[spinners]]" as="spinner">
+          <div class="actived">
+            <paper-checkbox checked="{{spinner.active}}">Spinner {{index}}</paper-checkbox>
+            <spinkit-element
+              active="[[spinner.active]]"
+              name="[[spinner.name]]"
+              color="[[spinner.color]]"
+              size="60">
+            </spinkit-element>
+          </div>
+        </template>
+      </section>
+
+    </div>
+
+  </template>
+  <script>
+    var spinners = [
+      { name: 'rotating-plane',  size: 20, color: '#F44336' },
+      { name: 'double-bounce', size: 30, color: '#E91E63' },
+      { name: 'wave', size: 40, color: '#2196F3' },
+      { name: 'wandering-cubes', size: 50, color: '#8BC34A' },
+      { name: 'spinner-pulse', size: 60, color: '#FF5722' },
+      { name: 'chasing-dots', size: 70, color: '#795548' },
+      { name: 'three-bounce', size: 80, color: '#FFEB3B' },
+      { name: 'circle', size: 90, color: '#00BCD4' },
+      { name: 'cube-grid', size: 100, color: '#009688' },
+      { name: 'fading-circle', size: 110, color: '#673AB7' },
+      { name: 'folding-cube', size: 120, color: '#FFC107' }
+    ];
+
+    addEventListener('WebComponentsReady', function() {
+      var t = document.querySelector("#t");
+      t.spinners = spinners;
+      t.spinner = 'wave'
+      t.size = 60;
+      t.color = '#40FF6C';
+    });
+  </script>
+
+</body>
+</html>
